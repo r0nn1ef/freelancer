@@ -1,0 +1,126 @@
+<?php
+use Drupal\Core\Template\RenderWrapper;
+use Drupal\Core\Template\Attribute;
+use Drupal\search\Form\SearchBlockForm;
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\system\Form\ThemeSettingsForm;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Url;
+use Drupal\file\Plugin\Core\Entity\FileInterface;
+use Drupal\flexslider\Entity\Flexslider;
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function freelancer_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $form['freelancer_zymphonies_theme_settings']['social_icon']['truthsocial_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Truth Social URL'),
+    '#default_value' => theme_get_setting('truthsocial_url'),
+  );
+  $form['freelancer_zymphonies_theme_settings']['social_icon']['youtube_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Youtube™ URL'),
+    '#default_value' => theme_get_setting('youtube_url'),
+  );
+}
+
+/**
+ * Implements hook_preprocess_page() for block templates.
+ */
+function freelancer_preprocess_page(&$variables) {
+  $variables['truthsocial_url'] = theme_get_setting('truthsocial_url');
+  $variables['youtube_url'] = theme_get_setting('youtube_url');
+  $variables['show_slideshow'] = 0;
+}
+
+function freelancer_preprocess_paragraph( &$variables ) {
+  $paragraph = $variables['paragraph'];
+  switch( $paragraph->bundle() ) {
+    case 'jumbotron_item':
+      \Drupal::logger('freelancer')->debug('<pre>@data</pre>', ['@data' => print_r(array_keys($variables), TRUE)]);
+      /**
+       * @var Drupal\Core\Field\EntityReferenceFieldItemList
+       */
+      $media = Media::load( $paragraph->field_image->first()->getValue()['target_id']);
+      \Drupal::logger('freelancer')->debug('<pre>@data</pre>', ['@data' => print_r($media->toArray(), TRUE)]);
+      $file = File::load( $media->field_media_image->target_id );
+      // We want to get the image style URL for the image.
+      $image_uri = $file->getFileUri();
+      /**
+       * @tod get image style from media display settings.
+       */
+      $style = ImageStyle::load('flexslider_jumbotron');
+      $destination_uri = $style->buildUri( $image_uri );
+      $style->createDerivative($image_uri, $destination_uri);
+      $variables['content']['image_url'] = \Drupal::service('file_url_generator')->generateAbsoluteString($destination_uri);
+      break;
+    case 'jumbotron_video':
+      $content = $variables['content'];
+      $media = $content['field_video'][0]['#media'];
+      $variables['is_remote'] = $media->bundle() == 'remote_video';
+      if ( $variables['is_remote'] ) {
+        $media_url = $media->field_media_oembed_video->getValue()[0]['value'];
+        $variables['youtube_id'] = _freelancer_extract_youtube_id( $media_url );
+        $variables['loop'] = (int) $paragraph->get('field_loop_video')->getValue();
+        $variables['mute'] = (int) $paragraph->get('field_mute_audio')->getValue();
+      }
+
+
+      break;
+    case 'jumbotron':
+      // Keep a copy of the paragraph content for now.
+      $variables_copy = $variables;
+      $optionset = $paragraph->get('field_flexslider_preset')->getValue()[0]['target_id'] ?? 'default';
+      $items = [];
+      foreach ($variables_copy['elements']['field_jumbotron_media'] as $key => $item ) {
+        if ( !is_numeric($key) ) continue;
+        $output = \Drupal::service('renderer')->render($item)->__toString();
+//        $output = preg_replace('/<!--\s.{1,}\s?\n?-->/', '', $output);
+//        header('content-type:text/plain');
+//        print "\n\n\n\nOutput:\n";
+//        var_dump( $output );
+//        exit;
+        $items[] = [
+          'slide' => $item,
+          'caption' => '',
+        ];
+
+      }
+
+      $variables['content'] = [
+        'slider' => [
+          '#theme' => 'flexslider',
+          '#flexslider' => [
+            'settings' => [
+              'optionset' => $optionset,
+              'attributes' => [],
+            ],
+            'items' => $items,
+            'attributes' => [
+              'id' => '',
+            ]
+          ]
+        ]
+      ];
+      break;
+    default:
+      // do nothing.
+  }
+
+}
+
+/**
+ * Helper function to get the YouTube ID from the oembed URL provided by YouTube.
+ * Oembed url pattern: https://youtu.be/xxxxxxx
+ * @param string $oembedUrl
+ *
+ * @return string
+ */
+function _freelancer_extract_youtube_id($oembedUrl) {
+  $value = preg_replace('/https:\/\/youtu\.be\/([a-zA-Z0-9]{2,})/', '$1', $oembedUrl);
+  return $value;
+}
