@@ -80,9 +80,3 @@ regions:
 
   # Auto hidden
   auto_hidden_block: 'Auto hidden blocks'
-
-
-# Information added by Drupal.org packaging script on 2020-11-25
-version: '2.0.2'
-project: 'freelancer_zymphonies_theme'
-datestamp: 1606282323
