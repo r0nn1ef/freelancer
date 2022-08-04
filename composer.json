@@ -1,0 +1,23 @@
+{
+    "name": "r0nn1ef/freelancer",
+    "description": "Subtheme of the Freelancer Zymphonies Theme for personal use.",
+    "keywords": ["Drupal", "theme", "Zymphonies"],
+    "type": "drupal-custom-module",
+    "license": "GPL-2.0-or-later",
+    "autoload": {
+        "psr-4": {
+            "r0nn1ef\\freelancer\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ronald Ferguson",
+            "email": "r0nn1ef8580@gmail.com",
+            "role": "maintainer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/freelancer_zymphonies_theme": "^2.0"
+    }
+}
