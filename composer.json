@@ -2,7 +2,7 @@
     "name": "r0nn1ef/freelancer",
     "description": "Subtheme of the Freelancer Zymphonies Theme for personal use.",
     "keywords": ["Drupal", "theme", "Zymphonies"],
-    "type": "drupal-custom-module",
+    "type": "drupal-custom-theme",
     "license": "GPL-2.0-or-later",
     "autoload": {
         "psr-4": {
