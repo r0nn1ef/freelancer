@@ -4,11 +4,6 @@
     "keywords": ["Drupal", "theme", "Zymphonies"],
     "type": "drupal-custom-theme",
     "license": "GPL-2.0-or-later",
-    "autoload": {
-        "psr-4": {
-            "r0nn1ef\\freelancer\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Ronald Ferguson",
