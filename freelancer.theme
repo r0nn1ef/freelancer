@@ -79,11 +79,6 @@ function freelancer_preprocess_paragraph( &$variables ) {
       foreach ($variables_copy['elements']['field_jumbotron_media'] as $key => $item ) {
         if ( !is_numeric($key) ) continue;
         $output = \Drupal::service('renderer')->render($item)->__toString();
-//        $output = preg_replace('/<!--\s.{1,}\s?\n?-->/', '', $output);
-//        header('content-type:text/plain');
-//        print "\n\n\n\nOutput:\n";
-//        var_dump( $output );
-//        exit;
         $items[] = [
           'slide' => $item,
           'caption' => '',
@@ -111,6 +106,21 @@ function freelancer_preprocess_paragraph( &$variables ) {
       // do nothing.
   }
 
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ *
+ * Adds template suggestions for custom block bundles.
+ *
+ * @param array $suggestions
+ * @param array $variables
+ * @return void
+ */
+function freelancer_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+    if (isset($variables['elements']['content']['#block_content'])) {
+        array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+    }
 }
 
 /**
