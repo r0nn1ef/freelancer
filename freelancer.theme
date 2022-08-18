@@ -11,6 +11,8 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\Core\Url;
 use Drupal\file\Plugin\Core\Entity\FileInterface;
 use Drupal\flexslider\Entity\Flexslider;
+use Drupal\user\UserInterface;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_form_system_theme_settings_alter().
@@ -106,6 +108,26 @@ function freelancer_preprocess_paragraph( &$variables ) {
       // do nothing.
   }
 
+}
+
+function freelancer_preprocess_node( &$variables ) {
+    /**
+     * Drupal\node\NodeInterface
+     */
+    $node = $variables['node'];
+    /**
+     * @var Drupal\user\UserInterface
+     */
+    $author = User::load( $node->get('uid')->getValue()[0]['target_id'] );
+    /*
+     * Add the node author full name to the template variables.
+     */
+    $variables['author_name'] = $author->get('field_first_name')->getValue()[0]['value'] . ' ' . $author->get('field_last_name')->getValue()[0]['value'];
+    $date = $variables['node']->getCreatedTime();
+    /*
+     * Change the date format for the created date.
+     */
+    $variables['date'] = \Drupal::service('date.formatter')->format($date, 'long');
 }
 
 /**

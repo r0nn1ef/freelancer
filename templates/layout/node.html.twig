@@ -20,6 +20,7 @@
  *   or print a subset such as {{ content.field_example }}. Use
  *   {{ content|without('field_example') }} to temporarily suppress the printing
  *   of a given child element.
+ * - author_name: The first and last name of the author user entity.
  * - author_picture: The node author user entity, rendered using the "compact"
  *   view mode.
  * - metadata: Metadata for this node.
@@ -91,7 +92,7 @@
       <div class="node__meta">
         {{ author_picture }}
         <span{{ author_attributes }}>
-          {% trans %}Submitted by {{ field_first_name }} {{ field_last_name }} on {{ date }}{% endtrans %}
+          {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
         </span>
         {{ metadata }}
       </div>
