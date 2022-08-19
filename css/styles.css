@@ -1,3 +1,4 @@
+/* Variables */
 /* Components */
 .slide .slider-video {
   width: 100vw;
@@ -22,6 +23,25 @@
     width: 177.78vh !important;
   }
 }
+.paragraph--type--service-member {
+  padding-bottom: 2em;
+  color: #435a6b;
+}
+.paragraph--type--service-member .field--name-field-name-with-rank {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.paragraph--type--service-member .field--name-field-date {
+  font-style: italic;
+  font-size: 0.9em;
+}
+.paragraph--type--service-member .conflict-heading, .paragraph--type--service-member .campaign-heading {
+  color: #999;
+}
+.paragraph--type--service-member .field--name-field-conflict-served, .paragraph--type--service-member .field--name-field-campaigns {
+  margin-left: 8px;
+}
+
 /* Overrides */
 .views-element-container .topic-latest-posts footer p {
   text-align: right;

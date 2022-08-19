@@ -1,0 +1,18 @@
+.paragraph--type--service-member {
+  padding-bottom: 2em;
+  color: $baseFontColor;
+  .field--name-field-name-with-rank {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .field--name-field-date {
+    font-style: italic;
+    font-size: 0.9em;
+  }
+  .conflict-heading, .campaign-heading {
+    color: $grey2;
+  }
+  .field--name-field-conflict-served, .field--name-field-campaigns {
+    margin-left: 8px;
+  }
+}

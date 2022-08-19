@@ -46,11 +46,8 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
 ]
 %}
-{% if paragraph.field_branch_of_service.0.value is 'OTR' %}
-  {% set is_other_service = true %}
-{% else %}
-  {% set is_other_service = false %}
-{% endif %}
+
+{% set is_other_service = false %}
 {% block paragraph %}
     <div{{ attributes.addClass(classes) }}>
         {% block content %}
@@ -62,17 +59,14 @@
                 {{ content.field_middle_name }}
                 {{ content.field_last_name }}
             {% endif %}
-            {% if is_other_service %}
-                {{ content.field_branch_of_service_other }}
-            {% else %}
-                {{ content.field_branch_of_service }}
-            {% endif %}
             {{ content.field_date }}
-            {{ if content.field_conflict_served }}
-              {{ content.field_conflict_served }}
+            {% if content.field_conflict_served.0 %}
+                <div class="conflict-heading">{{ 'Conflicts'|t }}</div>
+                {{ content.field_conflict_served }}
             {% endif %}
-            {{ if content.field_campaigns }}
-            {{ content.field_campaigns }}
+            {% if content.field_campaigns.0 %}
+                <div class="campaign-heading">{{ 'Campaign participation'|t }}</div>
+                {{ content.field_campaigns }}
             {% endif %}
         {% endblock %}
     </div>
