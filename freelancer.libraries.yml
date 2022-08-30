@@ -2,3 +2,11 @@ global-styling:
   css:
     theme:
       css/styles.css: {minified: false}
+lightbox:
+  js:
+    'js/lightbox2/dist/js/lightbox.min.js': { minified: true}
+  css:
+    theme:
+      'js/lightbox2/dist/lightbox.min.css': { minified: true }
+  dependencies:
+    - core/jquery
