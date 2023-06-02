@@ -1,0 +1,34 @@
+/*
+ * Main cookie banner wrapper.
+ */
+.cookiesjsr-banner {
+  background: $linkColor;
+  -moz-box-shadow: inset 1px -1px 13px 3px $linkColorHover;
+  -webkit-box-shadow: inset 1px -1px 13px 3px $linkColorHover;
+  box-shadow: inset 1px -1px 13px 3px $linkColorHover;
+
+  .cookiesjsr-btn {
+    &.important {
+      color: $linkColor;
+      -webkit-border-radius: 3px;
+      border-radius: 3px;
+    }
+  }
+
+  .cookiesjsr-links {
+    &.links--row {
+      li {
+        list-style-type: none;
+        &:before {
+          background-color: unset;
+        }
+        a {
+          &:hover {
+            color: $bodyBGColor;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

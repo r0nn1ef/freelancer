@@ -70,4 +70,29 @@
   margin-bottom: 0;
 }
 
+/*
+ * Main cookie banner wrapper.
+ */
+.cookiesjsr-banner {
+  background: #e94a4a;
+  -moz-box-shadow: inset 1px -1px 13px 3px #c52222;
+  -webkit-box-shadow: inset 1px -1px 13px 3px #c52222;
+  box-shadow: inset 1px -1px 13px 3px #c52222;
+}
+.cookiesjsr-banner .cookiesjsr-btn.important {
+  color: #e94a4a;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+.cookiesjsr-banner .cookiesjsr-links.links--row li {
+  list-style-type: none;
+}
+.cookiesjsr-banner .cookiesjsr-links.links--row li:before {
+  background-color: unset;
+}
+.cookiesjsr-banner .cookiesjsr-links.links--row li a:hover {
+  color: #f7f7fa;
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=styles.css.map */
