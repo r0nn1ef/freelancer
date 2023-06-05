@@ -32,3 +32,65 @@
     }
   }
 }
+
+.cookiesjsr-service-group {
+  &.active {
+    .cookiesjsr-service-group--content, .cookiesjsr-service-group--tab {
+      background: $desktopMenuHover;
+      color: $grey4;
+    }
+    .cookiesjsr-service-group--content {
+      color: $grey4;
+    }
+    .cookiesjsr-service-group--tab {
+      &:focus-visible {
+
+      }
+    }
+
+    .cookiesjsr-service--description {
+      h3 {
+        color: $grey4;
+      }
+      ul.cookiesjsr-service--links {
+        li {
+          list-style-position: outside;
+          list-style-type: none;
+          &:before {
+            background-color: unset;
+          }
+          a {
+            color: $grey4;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .cookiesjsr-service-group--tab {
+    color: $grey2;
+  }
+
+}
+
+.cookiesjsr-layer--label-all, .cookiesjsr-layer--title {
+  color: $grey4;
+}
+
+.cookiesjsr-layer--actions {
+  .cookiesjsr-btn.invert {
+    background-color: $bodyBGColor;
+    border-color: $linkColorHover;
+    color: $linkColor;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    &.important {
+      background-color: $linkColor;
+      border-color: $linkColorHover;
+      color: $bodyBGColor;
+    }
+  }
+}
