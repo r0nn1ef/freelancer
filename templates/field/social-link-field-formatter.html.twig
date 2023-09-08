@@ -21,7 +21,7 @@ appearance.orientation,
 ]
 %}
 
-{% spaceless %}
+{% apply spaceless %}
   {% if links %}
     <ul {{ attributes.addClass(classes) }}>
       {{ 'Follow me'|t }}
@@ -34,4 +34,4 @@ appearance.orientation,
       {% endfor %}
     </ul>
   {% endif %}
-{% endspaceless %}
+{% endapply %}
