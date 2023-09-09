@@ -11,8 +11,5 @@
             "role": "maintainer"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {
-        "drupal/freelancer_zymphonies_theme": "^2.0"
-    }
+    "minimum-stability": "dev"
 }
