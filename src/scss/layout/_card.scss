@@ -1,0 +1,40 @@
+.card {
+  .card-image {
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+
+    & > a, & > .card-author {
+      position: relative;
+    }
+
+    & > a {
+      display: block;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    & > .card-author {
+      top: -200px;
+      left: 25px;
+      z-index: 11;
+      display: grid;
+      grid-template-columns: 25px 1fr;
+      gap: 0.5rem;
+      align-items:center;
+
+      & > img {
+        border: none;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .card-author-name {
+        font-size: 1.5em;
+        font-weight: 500;
+      }
+    }
+  }
+}
