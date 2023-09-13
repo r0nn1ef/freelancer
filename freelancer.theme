@@ -134,13 +134,21 @@ function freelancer_preprocess_node( &$variables ) {
     }
     if ( !isset($variables['author_picture'])) {
       $authorImageFile = File::load($author->get('user_picture')->getValue()[0]['target_id']);
-      $authorImageBuild = [
-        '#theme' => 'image_style',
-        '#uri' => $authorImageFile->getFileUri(),
-        '#style_name' => 'user_card_photo',
-        '#alt' => $variables['author_name'],
-        '#title' => $variables['author_name'],
-      ];
+      if ( $authorImageFile ) {
+        $authorImageBuild = [
+          '#theme' => 'image_style',
+          '#uri' => $authorImageFile->getFileUri(),
+          '#style_name' => 'user_card_photo',
+          '#alt' => $variables['author_name'],
+          '#title' => $variables['author_name'],
+        ];
+      }
+      else {
+        $authorImageBuild = [
+          '#markup' => '<img src="'. \Drupal::service('extension.list.theme')->getPath('freelancer') .'/images/user-icon-25x25.jpg" alt="No author image available." />',
+        ];
+      }
+
       $variables['author_picture'] = \Drupal::service('renderer')->render($authorImageBuild);
     }
 }
