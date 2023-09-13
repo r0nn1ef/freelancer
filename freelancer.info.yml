@@ -10,6 +10,11 @@ dependencies:
 # Libraries
 libraries:
   - freelancer/global-styling
+  - freelancer/fontawesome
+
+libraries-override:
+  # Remove Fontawesome v4 because we want to use v6.
+  freelancer_zymphonies_theme/fontawesome: false
 
 # Regions
 regions:

@@ -83,6 +83,27 @@
         }
       }
     }
+    .field--name-field-tags .field__item {
+      display: inline-block;
+      margin: 20px 0.5em 0;
+      font-size: 0.7rem;
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      a {
+        border: 1px solid $grey2;
+        display: inline-block;
+        color: $grey2;
+        padding: 0 0.2em;
+        border-radius: 0.5em;
+        text-transform: uppercase;
+      }
+    }
   }
 
   .card-footer {

@@ -127,7 +127,36 @@ function freelancer_preprocess_node( &$variables ) {
     /*
      * Change the date format for the created date.
      */
-    $variables['date'] = \Drupal::service('date.formatter')->format($date, 'long');
+  $date_format = $variables['view_mode'] == 'card' ? 'woh_date' : 'long';
+  $variables['date'] = \Drupal::service('date.formatter')->format($date, $date_format);
+    if ( !isset($variables['author_attributes'])) {
+      $variables['author_attributes'] = new \Drupal\Core\Template\Attribute();
+    }
+    if ( !isset($variables['author_picture'])) {
+      $authorImageFile = File::load($author->get('user_picture')->getValue()[0]['target_id']);
+      $authorImageBuild = [
+        '#theme' => 'image_style',
+        '#uri' => $authorImageFile->getFileUri(),
+        '#style_name' => 'user_card_photo',
+        '#alt' => $variables['author_name'],
+        '#title' => $variables['author_name'],
+      ];
+      $variables['author_picture'] = \Drupal::service('renderer')->render($authorImageBuild);
+    }
+}
+
+function freelancer_preprocess_social_link_field_formatter(&$variables) {
+  for($i=0;$i<count($variables['links']);$i++) {
+    $attributes = $variables['links'][$i]['text']['#attributes'];
+    $attributes['class'][0] = 'fa-brands';
+    if ( $variables['links'][$i]['title']->__toString() == 'Twitter') {
+      $attributes['class'][1] = 'fa-x-twitter';
+    }
+    $variables['links'][$i]['text']['#attributes'] = $attributes;
+//    header('content-type:text/plain');
+//    var_dump($variables['links'][$i]['title']->__toString());
+//    exit;
+  }
 }
 
 /**
