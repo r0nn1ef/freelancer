@@ -97,10 +97,16 @@
             {{ title_suffix }}
         </header>
         <div class="content card-body">
-            {{ content|without('field_post_image', 'title') }}
+            <!--
+              {% for key,value in content %}
+                key: {{ key }}
+              {% endfor %}
+            -->
+            {{ content|without('field_post_image', 'title', 'sharing_buttons') }}
         </div>
         <div class="card-footer">
             <div class="post-date">{{ date }}</div>
+            {{ content.sharing_buttons }}
         </div>
     </div>
 </article>

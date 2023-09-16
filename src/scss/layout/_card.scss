@@ -86,6 +86,13 @@
   }
 
   .card-footer {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+
+    .social-sharing-buttons {
+      margin: 0;
+    }
+
     .post-date {
       font-size: 0.65rem;
     }
