@@ -177,6 +177,17 @@
   margin-bottom: 0;
 }
 
+.block-personal-qr-code-block svg #qr-code-border,
+.block-personal-qr-code-block svg #qr-code-block {
+  fill: #435a6b;
+}
+.block-personal-qr-code-block svg #qr-code-text {
+  fill: #fff;
+}
+.block-personal-qr-code-block .instructions p {
+  color: #435a6b;
+}
+
 /*
  * Main cookie banner wrapper.
  */

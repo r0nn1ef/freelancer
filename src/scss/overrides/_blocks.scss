@@ -6,3 +6,18 @@
     }
   }
 }
+
+.block-personal-qr-code-block {
+  svg #qr-code-border,
+  svg #qr-code-block {
+    fill: $baseFontColor;
+  }
+
+  svg #qr-code-text {
+    fill: $white;
+  }
+
+  .instructions p {
+    color: $baseFontColor;
+  }
+}
