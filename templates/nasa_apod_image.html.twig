@@ -1,0 +1,12 @@
+{% set image_url = item.hdurl|default(item.url) %}
+<!--
+ image_url: {{ image_url }}
+-->
+<figure>
+    <a class="apod-image-link" href="https://apod.nasa.gov/apod/ap{{ item.date|date('ymd') }}.html" rel="nofollow" title="{{ item.title }}" target="_blank">
+     <img src="{{ (item.image_style is not empty ? image_url|imagecache_external(item.image_style) : image_url) }}" width="100%" class="apod-image" alt="{{ item.title }}" />
+    </a>
+    {% if item.copyright and item.copyright is not empty %}
+      <figcaption>{{ 'Copyright'|t }} &copy; {{ item.copyright }}</figcaption>
+    {% endif %}
+</figure>
