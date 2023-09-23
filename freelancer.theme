@@ -43,7 +43,6 @@ function freelancer_preprocess_paragraph( &$variables ) {
   $paragraph = $variables['paragraph'];
   switch( $paragraph->bundle() ) {
     case 'jumbotron_item':
-      \Drupal::logger('freelancer')->debug('<pre>@data</pre>', ['@data' => print_r(array_keys($variables), TRUE)]);
       /**
        * @var Drupal\Core\Field\EntityReferenceFieldItemList
        */
@@ -70,6 +69,7 @@ function freelancer_preprocess_paragraph( &$variables ) {
         $variables['loop'] = (int) $paragraph->get('field_loop_video')->getValue();
         $variables['mute'] = (int) $paragraph->get('field_mute_audio')->getValue();
       }
+      $variables['origin'] = \Drupal::request()->getSchemeAndHttpHost();
 
 
       break;
