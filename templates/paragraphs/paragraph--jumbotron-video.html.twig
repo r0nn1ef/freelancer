@@ -43,7 +43,7 @@
     <div class="slide">
       <div class="slider-video">
       {% if is_remote %}
-        <iframe src="https://www.youtube.com/embed/{{ youtube_id }}?enablejsapi=1&amp;controls=0&amp;autoplay=1&amp;autopause=0&amp;mute={{ mute }}&amp;loop={{ loop }}{% if loop %}&amp;playlist={{ youtube_id }}{%endif%}&amp;rel=0&amp;origin={{ url('entity.node.canonical', {'node': 3}) }}"
+        <iframe src="https://www.youtube.com/embed/{{ youtube_id }}?enablejsapi=1&amp;controls=0&amp;autoplay=1&amp;autopause=0&amp;mute={{ mute }}&amp;loop={{ loop }}{% if loop %}&amp;playlist={{ youtube_id }}{%endif%}&amp;rel=0&amp;origin={{ origin }}"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen autoplay></iframe>
