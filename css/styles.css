@@ -1,5 +1,9 @@
 /* Variables */
 /* Layouts */
+.top-nav {
+  text-align: left;
+}
+
 .card .card-image {
   position: relative;
   top: 0;
