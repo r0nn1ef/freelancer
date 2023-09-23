@@ -66,8 +66,8 @@ function freelancer_preprocess_paragraph( &$variables ) {
       if ( $variables['is_remote'] ) {
         $media_url = $media->field_media_oembed_video->getValue()[0]['value'];
         $variables['youtube_id'] = _freelancer_extract_youtube_id( $media_url );
-        $variables['loop'] = (int) $paragraph->get('field_loop_video')->getValue();
-        $variables['mute'] = (int) $paragraph->get('field_mute_audio')->getValue();
+        $variables['loop'] = (int) $paragraph->get('field_loop_video')->getValue() ?? 0;
+        $variables['mute'] = (int) $paragraph->get('field_mute_audio')->getValue() ?? 0;
       }
       $variables['origin'] = \Drupal::request()->getSchemeAndHttpHost();
 
@@ -190,6 +190,6 @@ function freelancer_theme_suggestions_block_alter(array &$suggestions, array $va
  * @return string
  */
 function _freelancer_extract_youtube_id($oembedUrl) {
-  $value = preg_replace('/https:\/\/youtu\.be\/([a-zA-Z0-9]{2,})/', '$1', $oembedUrl);
+  $value = preg_replace('/^https:\/\/youtu\.be\/([\-_a-zA-Z0-9]{2,})(\?.*)?$/', '$1', $oembedUrl);
   return $value;
 }
