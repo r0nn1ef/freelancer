@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Clarendon Cn BT';
+    src: url('ClarendonBT-RomanCondensed.woff2') format('woff2'),
+        url('ClarendonBT-RomanCondensed.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clarendon BT';
+    src: url('ClarendonBT-Bold.woff2') format('woff2'),
+        url('ClarendonBT-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clarendon Cn BT';
+    src: url('ClarendonBT-BoldCondensed.woff2') format('woff2'),
+        url('ClarendonBT-BoldCondensed.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clarendon Lt BT';
+    src: url('ClarendonBT-Light.woff2') format('woff2'),
+        url('ClarendonBT-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clarendon Hv BT';
+    src: url('ClarendonBT-Heavy.woff2') format('woff2'),
+        url('ClarendonBT-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clarendon Blk BT';
+    src: url('ClarendonBT-Black.woff2') format('woff2'),
+        url('ClarendonBT-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Clarendon BT';
+    src: url('ClarendonBT-Roman.woff2') format('woff2'),
+        url('ClarendonBT-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

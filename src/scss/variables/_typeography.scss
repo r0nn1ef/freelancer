@@ -1,0 +1,65 @@
+$font-path: "/themes/custom/freelancer/fonts/ClarendonBT/";
+
+@font-face {
+  font-family: 'Clarendon Cn BT';
+  src: url($font-path + 'ClarendonBT-RomanCondensed.woff2') format('woff2'),
+  url($font-path + 'ClarendonBT-RomanCondensed.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clarendon BT';
+  src: url($font-path + 'ClarendonBT-Bold.woff2') format('woff2'),
+  url($font-path + 'ClarendonBT-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clarendon Cn BT';
+  src: url($font-path + 'ClarendonBT-BoldCondensed.woff2') format('woff2'),
+  url($font-path + 'ClarendonBT-BoldCondensed.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clarendon Lt BT';
+  src: url($font-path + 'ClarendonBT-Light.woff2') format('woff2'),
+  url($font-path + 'ClarendonBT-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clarendon Hv BT';
+  src: url($font-path + 'ClarendonBT-Heavy.woff2') format('woff2'),
+  url($font-path + 'ClarendonBT-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clarendon Blk BT';
+  src: url($font-path + 'ClarendonBT-Black.woff2') format('woff2'),
+  url($font-path + 'ClarendonBT-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Clarendon BT';
+  src: url($font-path + 'ClarendonBT-Roman.woff2') format('woff2'),
+  url($font-path + 'ClarendonBT-Roman.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

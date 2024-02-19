@@ -1,5 +1,6 @@
 /* Variables */
 @import "variables/colors";
+@import "variables/typeography";
 /* Layouts */
 @import "layout/header";
 @import "layout/card";
@@ -15,3 +16,4 @@
 @import "overrides/buttons";
 @import 'overrides/blocks';
 @import 'overrides/cookies';
+@import "overrides/flexslider";
