@@ -81,14 +81,14 @@
 
 <article{{ attributes.addClass(classes) }}>
     <div class="row">
-        <div class="col-xs-12 col-md-3">
+        <div class="col-xs-12 col-md-5">
             {{ content.field_post_image }}
         </div>
-        <div class="col-xs-12 col-md-9">
+        <div class="col-xs-12 col-md-7">
             <header>
                 {{ title_prefix }}
                 <h2{{ title_attributes.addClass('node__title') }}>
-                    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+                    {{ content.title }}
                 </h2>
                 {{ title_suffix }}
                 {% if display_submitted %}
@@ -101,6 +101,9 @@
             </header>
             <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
                 {{ content.body }}
+                <div class="view-more-link">
+                    <a href="{{ url }}" class="btn btn-primary" rel="bookmark" title="{{ content.title[0]['#title'] }}" aria-label="{{ content.title[0]['#title'] }}">{{ 'Read more'|t }}</a>
+                </div>
             </div>
         </div>
     </div>

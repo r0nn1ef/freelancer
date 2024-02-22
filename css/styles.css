@@ -208,6 +208,10 @@ img {
   height: auto;
 }
 
+.view-more-link {
+  margin-top: 0.8rem;
+}
+
 h1 {
   font-size: 1.75em;
 }
@@ -262,6 +266,34 @@ h1 {
 }
 .block-personal-qr-code-block .instructions p {
   color: #435a6b;
+}
+
+.block-nasa-apod-block h3 {
+  text-align: center;
+}
+
+#brands .field.field--name-field-brand-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+}
+@media only screen and (min-width: 768px) {
+  #brands .field.field--name-field-brand-logo {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+#brands .field.field--name-field-brand-logo .field__item {
+  padding: 8px;
+  text-align: center;
+}
+#brands .field.field--name-field-brand-logo .field__item img {
+  height: auto;
+  width: 50%;
 }
 
 /*
