@@ -88,7 +88,7 @@
             <header>
                 {{ title_prefix }}
                 <h3{{ title_attributes.addClass('node__title') }}>
-                    <a href="{{ url }}" class="btn btn-primary" rel="bookmark" title="{{ content.title[0]['#title'] }}" aria-label="{{ content.title[0]['#title'] }}">{{ content.title[0]['#title'] }}</a>
+                    <a href="{{ url }}" rel="bookmark" title="{{ content.title[0]['#title'] }}" aria-label="{{ content.title[0]['#title'] }}">{{ content.title[0]['#title'] }}</a>
                 </h3>
                 {{ title_suffix }}
                 {% if display_submitted %}

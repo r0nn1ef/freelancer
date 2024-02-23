@@ -6,6 +6,21 @@
       margin: 0;
     }
   }
+
+  .features {
+    padding-top: 6px;
+  }
+
+  .node {
+    &.node--type-blog.node--view-mode-teaser {
+      padding-left: 12px;
+      padding-right: 12px;
+      @media only screen and (min-width: 768px){
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
 }
 
 .region-page-title h1 {
