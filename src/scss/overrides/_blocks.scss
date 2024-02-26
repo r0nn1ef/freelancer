@@ -7,6 +7,32 @@
   }
 }
 
+.block-system-branding-block {
+  .site-logo,
+  .site-slogan {
+    max-width: 180px;
+    display: block;
+  }
+  .site-logo {
+    svg {
+      fill: $white;
+      width: 100%;
+    }
+  }
+  .site-slogan {
+    font-family: 'Clarendon Lt BT';
+    text-align: center;
+    line-height: 1.3rem;
+    color: $white;
+    border-top: 1px solid $white;
+    margin-top: -5px;
+    letter-spacing: 0.15rem;
+    @include for-tablet-landscape-up {
+
+    }
+  }
+}
+
 .block-personal-qr-code-block {
   svg #qr-code-border,
   svg #qr-code-block {

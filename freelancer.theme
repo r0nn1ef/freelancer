@@ -17,18 +17,18 @@ use Drupal\user\Entity\User;
 /**
  * Implements hook_form_system_theme_settings_alter().
  */
-function freelancer_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
-  $form['freelancer_zymphonies_theme_settings']['social_icon']['truthsocial_url'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Truth Social URL'),
-    '#default_value' => theme_get_setting('truthsocial_url'),
-  );
-  $form['freelancer_zymphonies_theme_settings']['social_icon']['youtube_url'] = array(
-    '#type' => 'textfield',
-    '#title' => t('Youtube™ URL'),
-    '#default_value' => theme_get_setting('youtube_url'),
-  );
-}
+//function freelancer_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+//  $form['freelancer_zymphonies_theme_settings']['social_icon']['truthsocial_url'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Truth Social URL'),
+//    '#default_value' => theme_get_setting('truthsocial_url'),
+//  );
+//  $form['freelancer_zymphonies_theme_settings']['social_icon']['youtube_url'] = array(
+//    '#type' => 'textfield',
+//    '#title' => t('Youtube™ URL'),
+//    '#default_value' => theme_get_setting('youtube_url'),
+//  );
+//}
 
 /**
  * Implements hook_preprocess_page() for block templates.
@@ -186,6 +186,14 @@ function freelancer_theme_suggestions_block_alter(array &$suggestions, array $va
     if (isset($variables['elements']['content']['#block_content'])) {
         array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
     }
+}
+
+function freelancer_preprocess_block(&$variables) {
+  if ( $variables['plugin_id'] == 'system_branding_block' ) {
+    $config = \Drupal::config('system.site');
+    $variables['site_slogan'] = $config->get('slogan') ?? '';
+  }
+
 }
 
 /**
