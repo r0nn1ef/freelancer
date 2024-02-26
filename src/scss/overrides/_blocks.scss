@@ -32,16 +32,14 @@
   .field {
     &.field--name-field-brand-logo {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      flex-direction: row;
+      justify-content: space-evenly;
+      margin-left: auto;
+      margin-right: auto;
       width: 90%;
 
       @media only screen and (min-width: 768px) {
         max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-        flex-direction: row;
-        justify-content: space-evenly;
       }
 
       .field__item {
@@ -50,13 +48,44 @@
 
         img {
           height: auto;
-          width: 50%;
-          @media only screen and (min-width: 768px){
-            width: 100%;
-          }
+          width: 100%;
         }
 
       }
+    }
+  }
+}
+
+.block-veteran-block {
+  .veteran-text,
+  .veteran-logo {
+    display: flex;
+    @include for-tablet-landscape-up{
+      justify-content: right;
+    }
+  }
+  .veteran-text {
+    font-family: 'Michroma';
+    font-size: 14px;
+    font-weight: 100;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    width: 43%;
+    justify-content: center;
+    @include for-tablet-landscape-up {
+      justify-content: right;
+      width: auto;
+    }
+  }
+  .veteran-logo {
+    height: 40px;
+    justify-content: left;
+    @include for-tablet-landscape-up {
+      justify-content: right;
+    }
+    svg {
+      height: 100%;
+      opacity: 0.85;
     }
   }
 }

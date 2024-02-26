@@ -1,4 +1,5 @@
 /* Variables */
+@import url("https://fonts.googleapis.com/css2?family=Michroma&display=swap");
 @font-face {
   font-family: "Clarendon Cn BT";
   src: url("/themes/custom/freelancer/fonts/ClarendonBT/ClarendonBT-RomanCondensed.woff2") format("woff2"), url("/themes/custom/freelancer/fonts/ClarendonBT/ClarendonBT-RomanCondensed.woff") format("woff");
@@ -287,17 +288,15 @@ h1 {
 
 #brands .field.field--name-field-brand-logo {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
   width: 90%;
 }
 @media only screen and (min-width: 768px) {
   #brands .field.field--name-field-brand-logo {
     max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    flex-direction: row;
-    justify-content: space-evenly;
   }
 }
 #brands .field.field--name-field-brand-logo .field__item {
@@ -306,12 +305,46 @@ h1 {
 }
 #brands .field.field--name-field-brand-logo .field__item img {
   height: auto;
-  width: 50%;
+  width: 100%;
 }
-@media only screen and (min-width: 768px) {
-  #brands .field.field--name-field-brand-logo .field__item img {
-    width: 100%;
+
+.block-veteran-block .veteran-text,
+.block-veteran-block .veteran-logo {
+  display: flex;
+}
+@media (min-width: 900px) {
+  .block-veteran-block .veteran-text,
+.block-veteran-block .veteran-logo {
+    justify-content: right;
   }
+}
+.block-veteran-block .veteran-text {
+  font-family: "Michroma";
+  font-size: 14px;
+  font-weight: 100;
+  letter-spacing: 0.4rem;
+  text-transform: uppercase;
+  width: 43%;
+  justify-content: center;
+}
+@media (min-width: 900px) {
+  .block-veteran-block .veteran-text {
+    justify-content: right;
+    width: auto;
+  }
+}
+.block-veteran-block .veteran-logo {
+  height: 40px;
+  justify-content: left;
+}
+@media (min-width: 900px) {
+  .block-veteran-block .veteran-logo {
+    justify-content: right;
+  }
+}
+.block-veteran-block .veteran-logo svg {
+  height: 100%;
+  opacity: 0.85;
 }
 
 /*
