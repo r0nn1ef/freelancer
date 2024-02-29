@@ -1,5 +1,28 @@
 .flexslider {
-  .slider-title {
+  .slider-caption {
+    top: 5%;
+    @include for-tablet-landscape-up {
+      top: 20%;
+    }
 
+    @include for-desktop-up {
+      top: 40%;
+    }
+
+    .slider-title {
+      margin-bottom: 0;
+      @include for-tablet-portrait-up {
+        margin-bottom: 20px;
+      }
+    }
+    div > p {
+      margin-bottom: 5px;
+      @include for-tablet-portrait-up {
+        margin-bottom: 20px;
+      }
+    }
+    .btn {
+      padding: 10px;
+    }
   }
 }
