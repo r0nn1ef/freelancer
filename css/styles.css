@@ -214,6 +214,10 @@ img {
   margin-top: 0.8rem;
 }
 
+.form-email {
+  display: block;
+}
+
 h1 {
   font-size: 1.75em;
 }
